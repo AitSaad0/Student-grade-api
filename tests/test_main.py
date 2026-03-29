@@ -39,3 +39,9 @@ def test_delete_student_not_found():
     response = client.delete("/students/999")
     assert response.status_code == 404
 
+def test_update_student():
+    client.post("/students", json={"username": "amzazi", "grade": 18.5})
+    response = client.put("/students/1", json={"username": "amzazi_updated", "grade": 19.0})
+    assert response.status_code == 200
+    assert response.json()["student"]["username"] == "amzazi_updated"
+
