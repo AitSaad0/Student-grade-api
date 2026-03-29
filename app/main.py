@@ -31,3 +31,12 @@ def delete_student(student_id: int):
     if student_id not in students:
         raise HTTPException(status_code=404, detail="Student not found")
     del students[student_id]
+
+
+
+@app.put("/students/{student_id}", status_code=200)
+def update_student(student_id: int, student: Student):
+    if student_id not in students:
+        raise HTTPException(status_code=404, detail="Student not found")
+    students[student_id] = student
+    return {"id": student_id, "student": "student"}
