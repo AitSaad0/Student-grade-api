@@ -45,3 +45,8 @@ def test_update_student():
     assert response.status_code == 200
     assert response.json()["student"]["username"] == "amzazi_updated"
 
+def test_health():
+    response = client.get("/health")
+    assert response.status_code == 200
+    assert response.json() == {"status": "ok"}
+
