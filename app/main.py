@@ -25,3 +25,9 @@ def get_student(student_id: int):
     if student_id not in students: 
         raise HTTPException(status_code=404, detail="Student not found")
     return students[student_id] 
+
+@app.delete("/students/{student_id}", status_code=204)
+def delete_student(student_id: int):
+    if student_id not in students:
+        raise HTTPException(status_code=404, detail="Student not found")
+    del students[student_id]
