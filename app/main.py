@@ -46,6 +46,6 @@ def update_student(student_id: int, student: Student):
 def health():
     return {"status": "ok"}
 
-@app.get("ping")
+@app.get("/ping")
 def ping():
     return {"ping": "pong"}
