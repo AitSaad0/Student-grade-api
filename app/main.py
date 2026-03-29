@@ -39,4 +39,4 @@ def update_student(student_id: int, student: Student):
     if student_id not in students:
         raise HTTPException(status_code=404, detail="Student not found")
     students[student_id] = student
-    return {"id": student_id, "student": "student"}
+    return {"id": student_id, "student": student}
