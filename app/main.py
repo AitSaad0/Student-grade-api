@@ -40,3 +40,8 @@ def update_student(student_id: int, student: Student):
         raise HTTPException(status_code=404, detail="Student not found")
     students[student_id] = student
     return {"id": student_id, "student": student}
+
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
